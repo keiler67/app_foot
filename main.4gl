@@ -66,7 +66,7 @@ DEFINE w ui.Window
 
         ON ACTION logoff
             INITIALIZE login TO NULL
-            CALL w.setText("FIFA World Cup 2018")
+            CALL w.setText("Euro 2020")
             CALL menu_state(DIALOG)
 
         ON ACTION close
