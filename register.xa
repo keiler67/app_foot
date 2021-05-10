@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="register" package="office_sweep-master_1" top="../" next="result" prev="player_pick">
+  <function name="do_register" modifier="public">
+    <api_param name="new_mode" type="BOOLEAN"/>
+  </function>
+</api_class>

@@ -1,0 +1,34 @@
+LAYOUT (TEXT="FIFA World Cup 2018", IMAGE="logo")
+VBOX
+GROUP
+GRID
+{
+[img01            ][f02                                ]
+[                 ][                                   ]
+}
+END
+END
+
+GROUP (TEXT="Image of the Day (Tap to Change)")
+GRID
+{
+[f03                                                   ]
+[                                                      ]
+[                                                      ]
+[                                                      ]
+[                                                      ]
+[                                                      ]
+}
+END
+END
+END
+END
+
+ATTRIBUTES
+
+IMAGE img01: logo, IMAGE = "logocup.jpg", STRETCH=NONE, SIZEPOLICY=FIXED, AUTOSCALE;
+TEXTEDIT f02 = formonly.motd, STRETCH=BOTH, STYLE="html";
+IMAGE f03 = formonly.iotd, AUTOSCALE, STRETCH=BOTH, ACTION=iotd;
+
+ 
+

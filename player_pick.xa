@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="player_pick" package="office_sweep-master_1" top="../" next="register" prev="picktest">
+  <function name="do_player_pick" modifier="public">
+    <api_param name="player_login" type="CHAR(10)"/>
+  </function>
+</api_class>

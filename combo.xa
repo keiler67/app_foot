@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="combo" package="office_sweep-master_1" top="../" next="combo_1" prev="admin">
+  <function name="combo_team" modifier="public">
+    <api_param name="cb" type="ui.ComboBox"/>
+  </function>
+  <function name="combo_venue" modifier="public">
+    <api_param name="cb" type="ui.ComboBox"/>
+  </function>
+  <function name="combo_gametype" modifier="public">
+    <api_param name="cb" type="ui.ComboBox"/>
+  </function>
+  <function name="combo_pick" modifier="public">
+    <api_param name="cb" type="ui.ComboBox"/>
+  </function>
+  <function name="combo_gameselect" modifier="public">
+    <api_param name="cb" type="ui.ComboBox"/>
+  </function>
+</api_class>

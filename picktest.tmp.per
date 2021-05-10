@@ -1,0 +1,35 @@
+---------------------------------------------------------------------------------- 
+-- File created from C:\Users\TFO\Documents\Test\office_sweep-master\picktest.4fd by Genero Studio
+-- WARNING! All changes made in this file will be lost!
+----------------------------------------------------------------------------------
+
+SCHEMA formonly
+
+LAYOUT (text=%"Form")
+Grid grid1
+{
+ <T sweep1                                                                         >
+ [flag_tea|team1 |drawal|team2 |flag_team2   |picks              |gamet|kicko|venue]
+ [        |      |      |      |             |                   |     |     |     ]
+}
+END -- grid1
+END -- picktest
+
+ATTRIBUTES
+Table sweep1:sweep1;
+Phantom formonly.game;
+IMAGE flag_tea=formonly.flag_team1, autoScale, width = 8 characters;
+Edit team1=formonly.team1, tabIndex=2;
+Edit drawal=formonly.drawallowed, tabIndex=3;
+Edit team2=formonly.team2, tabIndex=4;
+IMAGE flag_team2=formonly.flag_team2, width = 8 characters;
+Edit picks=formonly.picks, tabIndex=6, title=%"Picks";
+Edit gamet=formonly.gametype, tabIndex=7, title=%"Points";
+Edit kicko=formonly.kickoff, tabIndex=8, title=%"Kickoff";
+Edit venue=formonly.venue, tabIndex=9, title=%"Venue";
+END -- ATTRIBUTES
+
+INSTRUCTIONS
+SCREEN RECORD pick_scr(formonly.game,formonly.flag_team1,formonly.team1,formonly.drawallowed,formonly.team2,formonly.flag_team2,formonly.picks,formonly.gametype,formonly.kickoff,formonly.venue)
+END -- INSTRUCTIONS
+

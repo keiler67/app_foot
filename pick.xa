@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="pick" package="office_sweep-master_1" top="../" next="pick_backup" prev="main">
+  <function name="do_pick" modifier="public"/>
+  <function name="update_pick" modifier="public">
+    <api_param name="l_game" type="INTEGER"/>
+    <api_param name="l_pick" type="INTEGER"/>
+  </function>
+</api_class>

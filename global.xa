@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="global" package="office_sweep-master_1" top="../" next="global_1" prev="game_pick">
+  <VARIABLE name="login" modifier="global" type="CHAR(10)"/>
+</api_class>

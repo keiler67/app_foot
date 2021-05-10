@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="leaderboard" package="office_sweep-master_1" top="../" next="lib" prev="knock_out_update">
+  <function name="do_leaderboard" modifier="public"/>
+</api_class>

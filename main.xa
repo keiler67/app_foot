@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="main" package="office_sweep-master_1" top="../" next="pick" prev="login">
+  <function name="main" modifier="public"/>
+  <function name="get_name" modifier="public"/>
+  <function name="do_motd" modifier="public"/>
+  <function name="init_iotd" modifier="public"/>
+  <function name="do_iotd" modifier="public"/>
+</api_class>

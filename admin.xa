@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="admin" package="office_sweep-master_1" top="../" next="combo">
+  <function name="do_admin" modifier="public"/>
+  <function name="update_leaderboard" modifier="public"/>
+</api_class>

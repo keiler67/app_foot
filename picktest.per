@@ -1,0 +1,26 @@
+LAYOUT (text=%"Form")
+Table sweep1 (UNSORTABLECOLUMNS, UNMOVABLECOLUMNS)
+{
+[img01   |f01      |f02      |f03      |img02   |f04           |f05  |f06        |f07                 ]
+[        |         |         |         |        |              |     |           |                    ]
+}
+END
+END
+
+
+ATTRIBUTES
+PHANTOM formonly.game;
+IMAGE img01 = formonly.flag_team1, AUTOSCALE, UNMOVABLE;
+EDIT f01 = formonly.team1, JUSTIFY=CENTER;
+EDIT f02 = formonly.drawallowed, JUSTIFY=CENTER;
+EDIT f03 = formonly.team2, JUSTIFY=CENTER;
+IMAGE img02 = formonly.flag_team2, AUTOSCALE, UNMOVABLE;
+EDIT f04 = formonly.picks, TITLE="Picks", JUSTIFY=CENTER, UNMOVABLE;
+EDIT f05 = formonly.gametype, TITLE="Points", JUSTIFY=CENTER, UNMOVABLE;
+EDIT f06 = formonly.kickoff, TITLE="Kickoff", JUSTIFY=CENTER, UNMOVABLE;
+EDIT f07 = formonly.venue, TITLE="Venue", JUSTIFY=CENTER, UNMOVABLE;
+END
+
+INSTRUCTIONS
+SCREEN RECORD pick_scr(game, flag_team1, team1, drawallowed, team2, flag_team2, picks, gametype, kickoff, venue);  
+END

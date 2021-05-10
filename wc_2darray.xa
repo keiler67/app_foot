@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="wc_2darray" package="office_sweep-master_1" top="../" prev="rules">
+  <function name="init" modifier="public"/>
+  <function name="row_set" modifier="public">
+    <api_param name="i" type="INTEGER"/>
+    <api_param name="t" type="STRING"/>
+  </function>
+  <function name="col_set" modifier="public">
+    <api_param name="i" type="INTEGER"/>
+    <api_param name="t" type="STRING"/>
+  </function>
+  <function name="row_class_set" modifier="public">
+    <api_param name="i" type="INTEGER"/>
+    <api_param name="c" type="STRING"/>
+  </function>
+  <function name="row_style_set" modifier="public">
+    <api_param name="i" type="INTEGER"/>
+    <api_param name="s" type="STRING"/>
+  </function>
+  <function name="col_class_set" modifier="public">
+    <api_param name="i" type="INTEGER"/>
+    <api_param name="c" type="STRING"/>
+  </function>
+  <function name="col_style_set" modifier="public">
+    <api_param name="i" type="INTEGER"/>
+    <api_param name="s" type="STRING"/>
+  </function>
+  <function name="cell_set" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+    <api_param name="v" type="STRING"/>
+  </function>
+  <function name="cell_get" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+  </function>
+  <function name="cell_class_set" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+    <api_param name="c" type="STRING"/>
+  </function>
+  <function name="cell_class_append" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+    <api_param name="c" type="STRING"/>
+  </function>
+  <function name="cell_style_set" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+    <api_param name="s" type="STRING"/>
+  </function>
+  <function name="cell_style_append" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+    <api_param name="s" type="STRING"/>
+  </function>
+  <function name="cell_width_set" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+    <api_param name="w" type="STRING"/>
+  </function>
+  <function name="cell_height_set" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+    <api_param name="h" type="STRING"/>
+  </function>
+  <function name="style_append" modifier="public">
+    <api_param name="selector" type="STRING"/>
+    <api_param name="att" type="STRING"/>
+    <api_param name="val" type="STRING"/>
+  </function>
+  <function name="generate_html" modifier="public"/>
+  <function name="generate_css" modifier="public"/>
+  <function name="col_id" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+  </function>
+  <function name="row_id" modifier="public">
+    <api_param name="y" type="INTEGER"/>
+  </function>
+  <function name="cell_id" modifier="public">
+    <api_param name="x" type="INTEGER"/>
+    <api_param name="y" type="INTEGER"/>
+  </function>
+  <function name="html_send" modifier="public">
+    <api_param name="fieldname" type="STRING"/>
+  </function>
+  <function name="get_click" modifier="public">
+    <api_param name="s" type="STRING"/>
+  </function>
+</api_class>

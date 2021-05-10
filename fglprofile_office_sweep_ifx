@@ -1,0 +1,2 @@
+dbi.database.sweep.source = "sweep@ol_demo11"
+dbi.database.sweep.driver = "dbmifx"

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<APPLICATION Parent="defaultwa">
+  <RESOURCE Id="res.env.informixdir" Source="INTERNAL">/dbs/64bits/ifx/11.70.fc8</RESOURCE>
+  <RESOURCE Id="res.env.ld_library_path" Source="ENVIRON">LD_LIBRARY_PATH</RESOURCE>
+
+  <EXECUTION>
+    <!--<ENVIRONMENT_VARIABLE Id="SWEEP_NOW">2018-06-20 18:00</ENVIRONMENT_VARIABLE>-->
+    <ENVIRONMENT_VARIABLE Id="FGLSQLDEBUG">9</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="FGLPROFILE">/home/gas/apps/office_sweep-20180606/fglprofile_office_sweep_ifx</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="INFORMIXDIR">$(res.env.informixdir)</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="INFORMIXSERVER">ol_demo11</ENVIRONMENT_VARIABLE>
+    <ENVIRONMENT_VARIABLE Id="LD_LIBRARY_PATH">$(res.env.informixdir)/lib:$(res.env.informixdir)/lib/c++:$(res.env.informixdir)/lib/cli:$(res.env.informixdir)/lib/client:$(res.env.informixdir)/lib/csm:$(res.env.informixdir)/lib/dmi:$(res.env.informixdir)/lib/esql:$(res.env.ld_library_path)</ENVIRONMENT_VARIABLE>
+    <PATH>/home/gas/apps/office_sweep-20180606</PATH>
+    <MODULE>office_sweep.42r</MODULE>
+  </EXECUTION>
+   <UA_OUTPUT>
+    <PROXY>$(res.uaproxy.cmd)</PROXY>
+    <PUBLIC_IMAGEPATH>$(res.public.resources)</PUBLIC_IMAGEPATH>
+    <TIMEOUT Using="cpn.wa.timeout"/>
+    <GBC>gbc_wc</GBC>
+    </UA_OUTPUT>
+</APPLICATION>

@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<api_class name="knock_out_update" package="office_sweep-master_1" top="../" next="leaderboard" prev="global_1">
+  <function name="main" modifier="public"/>
+  <function name="update_knock_out" modifier="public"/>
+</api_class>
