@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='windows-1252'?>
-<api_class name="result" package="office_sweep-master_1" top="../" next="rules" prev="register">
-  <function name="do_result" modifier="public">
-    <api_param name="l_login" type="CHAR(10)"/>
-  </function>
-</api_class>

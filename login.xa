@@ -1,4 +1,0 @@
-<?xml version='1.0' encoding='windows-1252'?>
-<api_class name="login" package="office_sweep-master_1" top="../" next="main" prev="lib_1">
-  <function name="do_login" modifier="public"/>
-</api_class>

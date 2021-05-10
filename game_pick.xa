@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='windows-1252'?>
-<api_class name="game_pick" package="office_sweep-master_1" top="../" next="global" prev="create_database">
-  <function name="do_game_pick" modifier="public">
-    <api_param name="id" type="INTEGER"/>
-  </function>
-</api_class>
