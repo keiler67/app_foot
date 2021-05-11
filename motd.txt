@@ -1,6 +1,6 @@
-<h3>FIFA World Cup Sweepstake Rules</h3><br>
+<h3>Euro 2020 Predictions Contest</h3><br>
 
-<br>Correctly predict the result (win/draw/loss) of each of the 64 matches in World Cup 2018
+<br>Correctly predict the result (win/draw/loss) of each of the 51 matches in Euro 2020 (which is actually in 2021)
 <br>Predictions must be made before the scheduled kickoff of each individual match
 <br>A correct prediction is worth ...
 
