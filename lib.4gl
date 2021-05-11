@@ -10,10 +10,8 @@ DEFINE now DATETIME YEAR TO MINUTE
         LET now = FGL_GETENV("SWEEP_NOW")
     ELSE
         LET now = CURRENT YEAR TO MINUTE
-        DISPLAY "Test1:", now
     END IF
     LET now = util.Datetime.toUTC(now)
-    DISPLAY "Test2:", now
     RETURN now
 END FUNCTION
 
@@ -22,7 +20,6 @@ DEFINE utctime DATETIME YEAR TO MINUTE
 DEFINE localtime DATETIME YEAR TO MINUTE
 
     LET localtime = util.Datetime.toLocalTime(utctime)
-    DISPLAY "Test localtime:", localtime
     RETURN localtime
 END FUNCTION
 
