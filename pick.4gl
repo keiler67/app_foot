@@ -34,6 +34,21 @@ DEFINE wc_pick STRING
 DEFINE click_type STRING
 DEFINE click_x INTEGER
 DEFINE click_y INTEGER
+DEFINE sg_arr DYNAMIC ARRAY OF RECORD
+    game INT,
+    flag1 STRING,
+    team1 STRING,
+    pick STRING,
+    team2 STRING,
+    flag2 STRING,
+    venue STRING,
+    kickoff STRING,
+    gametype STRING,
+    v1 STRING,
+    dr STRING,
+    v2 STRING
+END RECORD
+     
 
     LET now = get_now_utc()
     DISPLAY now
@@ -50,8 +65,8 @@ DEFINE click_y INTEGER
              "WHERE game.gm_kickoff > ? ",
              "ORDER BY gm_kickoff"
 
-    DECLARE pick_curs CURSOR  FROM sql
-
+    DECLARE pick_curs CURSOR  FROM SQL
+   {
     LET i = 0
     CALL wc_2darray.init()
     CALL wc_2darray.style_append(".picked","border","3px solid");
@@ -81,6 +96,7 @@ DEFINE click_y INTEGER
     CALL wc_2darray.col_style_set(8,"width: 14%")
     CALL wc_2darray.col_style_set(9,"width: 18%")
 
+    
     FOREACH pick_curs USING login, now INTO pick_rec.*
         LET i = i + 1
         LET localtime = get_local_time(pick_rec.kickoff)
@@ -126,9 +142,82 @@ DEFINE click_y INTEGER
         END IF
        
     END FOREACH
-    
-    OPEN WINDOW pick WITH FORM "pick"
+    }
 
+    FOREACH pick_curs USING login, now INTO pick_rec.*
+        LET i = i + 1
+        LET localtime = get_local_time(pick_rec.kickoff)
+        --CALL wc_2darray.row_set(i,"")
+        --CALL wc_2darray.row_class_set(i,"row")
+        LET pick_arr[i].* = pick_rec.*
+
+        {
+        CALL wc_2darray.cell_set(2,i,pick_rec.tm1_name)
+        IF pick_rec.gt_drawallowed THEN
+            CALL wc_2darray.cell_set(3,i,"Draw")
+        ELSE
+            CALL wc_2darray.cell_set(3,i,"versus")
+        END IF
+        CALL wc_2darray.cell_set(4,i,pick_rec.tm2_name)
+        
+        CALL wc_2darray.cell_set(6,i,"Picks") -- replace with img
+        CALL wc_2darray.cell_set(7,i,pick_rec.gt_value)
+        CALL wc_2darray.cell_set(8,i,localtime)
+        CALL wc_2darray.cell_set(9,i,SFMT("%1 (%2)", pick_rec.vn_stadium, pick_rec.vn_city))
+
+        CALL wc_2darray.cell_class_append(2,i,IIF(pick_rec.pick=1,"picked","not_picked"))
+        CALL wc_2darray.cell_class_append(3,i,IIF(pick_rec.pick=0,"picked","not_picked"))
+        CALL wc_2darray.cell_class_append(4,i,IIF(pick_rec.pick=-1,"picked","not_picked"))
+        CALL wc_2darray.cell_class_append(2,i,"center")
+        CALL wc_2darray.cell_class_append(3,i,"center")
+        CALL wc_2darray.cell_class_append(4,i,"center")
+        CALL wc_2darray.cell_class_append(6,i,"center")
+        CALL wc_2darray.cell_class_append(7,i,"center")
+        CALL wc_2darray.cell_class_append(8,i,"center")
+        CALL wc_2darray.cell_class_append(9,i,"center")
+
+        -- TODO: change background image depending on the host automatically
+        CALL wc_2darray.cell_style_set(1,i,SFMT("background-image: url(https://demo.4js.com/gas/ua/i/flags/%1); background-size: %2",pick_rec.tm1_flag, "100% 100%"))
+        CALL wc_2darray.cell_style_set(2,i,SFMT("background-color: %1; color: %2;","lightgrey", pick_rec.tm1_colour1))
+        CALL wc_2darray.cell_style_set(4,i,SFMT("background-color: %1; color: %2;","lightgrey", pick_rec.tm2_colour1))
+        CALL wc_2darray.cell_style_set(5,i,SFMT("background-image: url(https://demo.4js.com/gas/ua/i/flags/%1); background-size: %2",pick_rec.tm2_flag, "100% 100%"))
+        
+        IF pick_rec.tm1_colour2 IS NOT NULL THEN
+            CALL wc_2darray.cell_style_append(2,i,SFMT("text-shadow: 0 0 2px %1;", pick_rec.tm1_colour2))
+        END IF
+        IF pick_rec.tm2_colour2 IS NOT NULL THEN
+            CALL wc_2darray.cell_style_append(4,i,SFMT("text-shadow: 0 0 2px %1;", pick_rec.tm2_colour2))
+        END IF
+        }
+       
+    END FOREACH
+
+    #Initialize display 
+    FOR i = 1 TO pick_arr.getLength()
+        SELECT tm_name INTO sg_arr[i].team1 FROM team, game WHERE gm_id = i AND tm_id = gm_team1
+        SELECT tm_name INTO sg_arr[i].team2 FROM team, game WHERE gm_id = i AND tm_id = gm_team2
+        SELECT tm_flag INTO sg_arr[i].flag1 FROM team, game WHERE gm_id = i AND tm_id = gm_team1
+        SELECT tm_flag INTO sg_arr[i].flag2 FROM team, game WHERE gm_id = i AND tm_id = gm_team2
+        SELECT vn_stadium INTO sg_arr[i].venue FROM venue, game WHERE gm_id = i AND vn_id = gm_venue
+        SELECT gm_kickoff INTO sg_arr[i].kickoff FROM game WHERE gm_id = i
+        SELECT gt_name INTO sg_arr[i].gametype FROM gametype, game WHERE gm_id = i AND gm_gametype = gt_id
+        LET sg_arr[i].v1 = "1.png"
+        LET sg_arr[i].v2 = "2.png"
+        LET sg_arr[i].dr = "x.png"
+        
+        
+    END FOR
+
+    DISPLAY sg_arr[1].team1
+    
+    OPEN WINDOW pick WITH FORM "pick_new"
+
+    DISPLAY ARRAY sg_arr TO pick_scr.* 
+        ON ACTION EXIT
+        EXIT DISPLAY
+    END DISPLAY
+
+    {
     DIALOG ATTRIBUTES(UNBUFFERED)
         INPUT BY NAME wc_pick ATTRIBUTES(WITHOUT DEFAULTS=TRUE)
         
@@ -170,6 +259,8 @@ DEFINE click_y INTEGER
             EXIT DIALOG
         
     END DIALOG
+}
+    
     CLOSE WINDOW pick
 
 END FUNCTION

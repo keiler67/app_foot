@@ -16,6 +16,8 @@ DEFINE w ui.Window
     CONNECT TO "sweep"
     SET LOCK MODE TO WAIT 30
     CLOSE WINDOW SCREEN
+
+    DISPLAY FGL_GETENV ("FGLIMAGEPATH")
    
     OPEN WINDOW sweep WITH FORM "main"
     LET w = ui.Window.getCurrent()

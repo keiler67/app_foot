@@ -17,6 +17,17 @@
 
    <Style name="Image">
      <StyleAttribute name="alignment" value="center" />
+     <StyleAttribute name="border" value="none" />
+   </Style>
+    <Style name="Label.kickoff">
+     <StyleAttribute name="fontSize" value="x-small" />
+     <StyleAttribute name="textColor" value="grey" />
+   </Style>
+   <Style name="Label.venue">
+     <StyleAttribute name="textColor" value="grey" />
+   </Style>
+   <Style name="Label.gametype">
+     <StyleAttribute name="fontWeight" value="bold" />
    </Style>
   
     <Style name="Image.empty">

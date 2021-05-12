@@ -1,0 +1,47 @@
+LAYOUT (TEXT="Pick", STRETCH@SMALL=X)
+VBOX
+SCROLLGRID (INITIALPAGESIZE=16, WANTFIXEDPAGESIZE=NO)
+{
+
+[bln][f06                      ]
+[std][f04                      ]
+            [f05               ]
+[f01        ][flag1][vs][flag2][f02        ]
+          [v1    ][dr    ][v2    ]
+          [      ][      ][      ]   
+                 
+
+}
+END
+GRID
+{
+[""]
+}
+END
+END
+END
+ATTRIBUTES
+PHANTOM formonly.game;
+PHANTOM formonly.pick;
+
+IMAGE bln : bln, IMAGE = "fa-futbol-o";
+IMAGE std : std, IMAGE = "stadium.png", SIZEPOLICY=FIXED, AUTOSCALE;
+IMAGE vs : vs, IMAGE = "vs.png", SIZEPOLICY=FIXED, AUTOSCALE;
+
+IMAGE flag1 = formonly.flag1, SIZEPOLICY=FIXED, AUTOSCALE;
+IMAGE flag2 = formonly.flag2, SIZEPOLICY=FIXED, AUTOSCALE;
+
+LABEL f01 = formonly.team1, TITLE="Country", JUSTIFY=RIGHT;
+LABEL f02 = formonly.team2, TITLE="Country", JUSTIFY=LEFT;
+
+LABEL f04 = formonly.venue, TITLE="Venue", STYLE="venue";
+LABEL f05 = formonly.kickoff, TITLE="Kickoff", JUSTIFY=CENTER, STYLE="kickoff";
+LABEL f06 = formonly.gametype, TITLE="Stage", STYLE="gametype";
+
+IMAGE v1 = formonly.v1, ACTION = win1, SIZEPOLICY=FIXED, AUTOSCALE; 
+IMAGE dr = formonly.dr, ACTION = dr, SIZEPOLICY=FIXED, AUTOSCALE;
+IMAGE v2 = formonly.v2, ACTION = win2, SIZEPOLICY=FIXED, AUTOSCALE;
+
+
+INSTRUCTIONS 
+SCREEN RECORD pick_scr(game, flag1, team1, pick, team2, flag2, venue, kickoff, gametype, v1, dr, v2);                    
