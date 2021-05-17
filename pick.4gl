@@ -43,13 +43,22 @@ DEFINE sg_arr DYNAMIC ARRAY OF RECORD
     team2 STRING,
     flag2 STRING,
     venue STRING,
+    city STRING,
     kickoff STRING,
     gametype STRING,
     v1 STRING,
     dr STRING,
     v2 STRING
 END RECORD
+DEFINE w ui.Window
+DEFINE f ui.Form
+DEFINE n om.DomNode
+DEFINE nlist om.NodeList
+
      
+
+    
+        
 
     LET now = get_now_utc()
     DISPLAY "NOW IS ", now
@@ -71,19 +80,20 @@ END RECORD
     FOREACH pick_curs USING login, now INTO pick_rec.*
         LET i = i + 1
         LET localtime = get_local_time(pick_rec.kickoff)
-        LET pick_arr[i].* = pick_rec.*  
-        DISPLAY "game is " , pick_arr[i].game      
+        LET pick_arr[i].* = pick_rec.*       
     END FOREACH
 
     #Initialize display 
     FOR i = 1 TO pick_arr.getLength()
-        SELECT tm_name INTO sg_arr[i].team1 FROM team WHERE tm_id = pick_arr[i].team1
-        SELECT tm_name INTO sg_arr[i].team2 FROM team  WHERE tm_id = pick_arr[i].team2
-        SELECT tm_flag INTO sg_arr[i].flag1 FROM team WHERE tm_id = pick_arr[i].team1
-        SELECT tm_flag INTO sg_arr[i].flag2 FROM team WHERE tm_id = pick_arr[i].team2
-        SELECT vn_stadium INTO sg_arr[i].venue FROM venue WHERE vn_id = pick_arr[i].venue
+        LET sg_arr[i].game = pick_arr[i].game
+        LET sg_arr[i].team1 = pick_arr[i].tm1_name
+        LET sg_arr[i].team2 = pick_arr[i].tm2_name
+        LET sg_arr[i].flag1 = pick_arr[i].tm1_flag
+        LET sg_arr[i].flag2 = pick_arr[i].tm2_flag
+        LET sg_arr[i].venue = pick_arr[i].vn_stadium
+        LET sg_arr[i].city = pick_arr[i].vn_city
         SELECT gt_name INTO sg_arr[i].gametype FROM gametype WHERE gt_id = pick_arr[i].gametype
-        SELECT gm_kickoff INTO kickoff_utc FROM game WHERE gm_id = pick_arr[i].game
+        LET kickoff_utc = pick_arr[i].kickoff
         LET localtime = get_local_time(kickoff_utc)
         LET sg_arr[i].kickoff = localtime  
 
@@ -113,13 +123,26 @@ END RECORD
     
     OPEN WINDOW pick WITH FORM "pick_new"
 
-    DISPLAY ARRAY sg_arr TO pick_scr.* ATTRIBUTES (UNBUFFERED)
+    DISPLAY "MEDIA IS ", ui.Interface.getRootNode().getAttribute("media")
+
+     #pagedScrollgrid for media = medium and large
+     IF ui.Interface.getRootNode().getAttribute("media") == "large" OR 
+     ui.Interface.getRootNode().getAttribute("media") == "medium" OR
+     ui.Interface.getRootNode().getAttribute("media") IS NULL 
+     THEN  
+        DISPLAY "MEDIA CONDITION OK"
+        LET w = ui.Window.getCurrent()
+        LET f = w.getForm()
+        CALL f.setElementStyle("sg1", "paged")
+    END IF
+
+    DISPLAY ARRAY sg_arr TO pick_scr.* ATTRIBUTES (UNBUFFERED, DOUBLECLICK=pick_details, ACCEPT=FALSE, CANCEL=FALSE)
         ON ACTION win1 
             CASE sg_arr[arr_curr()].v1
                 #If v1 is already selected, need to select another pick (if you want to update)
                 #delete is not allowed
                 WHEN "1_validate.png"
-                      MESSAGE "Pick already selected, choose another pick"
+                      ERROR "Pick already selected, choose another pick"
                 WHEN "1.png" 
                     IF sg_arr[arr_curr()].v2 = "2_validate.png" THEN 
                         LET sg_arr[arr_curr()].v2 = "2.png"
@@ -128,14 +151,14 @@ END RECORD
                         LET sg_arr[arr_curr()].dr = "x.png"
                     END IF
                     LET sg_arr[arr_curr()].v1 = "1_validate.png"
-                    CALL update_pick(pick_arr[arr_curr()].game, 1)
+                    CALL update_pick(sg_arr[arr_curr()].game, 1)
             END CASE 
 
         ON ACTION win2 
             CASE sg_arr[arr_curr()].v2
                 #If v1 is already selected, reset to unselected 
                 WHEN "2_validate.png"
-                      MESSAGE "Pick already selected, choose another pick"
+                      ERROR "Pick already selected, choose another pick"
                 WHEN "2.png" 
                     IF sg_arr[arr_curr()].v1 = "1_validate.png" THEN 
                         LET sg_arr[arr_curr()].v1 = "1.png"
@@ -144,14 +167,14 @@ END RECORD
                         LET sg_arr[arr_curr()].dr = "x.png"
                     END IF
                     LET sg_arr[arr_curr()].v2 = "2_validate.png"
-                    CALL update_pick(pick_arr[arr_curr()].game, -1)
+                    CALL update_pick(sg_arr[arr_curr()].game, -1)
             END CASE  
 
         ON ACTION dr 
             CASE sg_arr[arr_curr()].dr
                 #If v1 is already selected, reset to unselected 
                 WHEN "x_validate.png"
-                    MESSAGE "Pick already selected, choose another pick"
+                    ERROR "Pick already selected, choose another pick"
                 WHEN "x.png" 
                     IF sg_arr[arr_curr()].v1 = "1_validate.png" THEN 
                         LET sg_arr[arr_curr()].v1 = "1.png"
@@ -160,11 +183,13 @@ END RECORD
                         LET sg_arr[arr_curr()].v2 = "2.png"
                     END IF
                     LET sg_arr[arr_curr()].dr = "x_validate.png"
-                    CALL update_pick(pick_arr[arr_curr()].game, 0)
+                    CALL update_pick(sg_arr[arr_curr()].game, 0)
             END CASE
- 
-        ON ACTION EXIT
-        EXIT DISPLAY
+        ON ACTION pick_details  
+                   CALL do_game_pick (sg_arr[arr_curr()].game)
+        ON ACTION back_dialog 
+                    EXIT DISPLAY
+
     END DISPLAY
     
     CLOSE WINDOW pick

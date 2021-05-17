@@ -3,7 +3,8 @@
   
   <ActionDefault name="accept"    text="Submit" image = "accept" acceleratorName="Return" />
   <ActionDefault name="cancel"    text="Back"   image = "cancel" acceleratorName="Escape" />
-  <ActionDefault name="close"    defaultView="no" acceleratorName="Alt-F4" />
+  <ActionDefault name="close"  image="close" defaultView="no" acceleratorName="Alt-F4" />
+  <ActionDefault name="back_dialog"    text="Back" image="fa-backward" />
 
   <ActionDefault name="login"    text="Login"  image="fa-sign-in" comment="Login and play"  />
   <ActionDefault name="logoff"    text="Logoff" image="fa-sign-out" comment="Logoff"   />

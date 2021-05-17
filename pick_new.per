@@ -1,14 +1,15 @@
-LAYOUT (TEXT="Pick", STRETCH@SMALL=X)
+LAYOUT (TEXT="Pick")
 VBOX
-SCROLLGRID (INITIALPAGESIZE=16, WANTFIXEDPAGESIZE=NO)
+SCROLLGRID sg1 (INITIALPAGESIZE=16, WANTFIXEDPAGESIZE=NO)
 {
 [""]
-[bln][f06                      ]
-[std][f04                      ]
+[b][f06             ]
+[s][f04             ]
+[c][f07             ]
          [f05         ]
-[f01     ][f1][vs][f2][f02     ]
-     [v1   ][ dr  ][ v2  ]
-     [     ][     ][     ]
+[f01     ][f1 ][vs ][f2 ][f02     ]
+          [v1 ][dr ][v2 ]
+          [   ][   ][   ]
 [""]                 
 }
 END
@@ -23,8 +24,9 @@ ATTRIBUTES
 PHANTOM formonly.game;
 PHANTOM formonly.pick;
 
-IMAGE bln : bln, IMAGE = "fa-futbol-o";
-IMAGE std : std, IMAGE = "stadium.png", SIZEPOLICY=FIXED, AUTOSCALE;
+IMAGE b : bln, IMAGE = "fa-futbol-o";
+IMAGE s : std, IMAGE = "stadium.svg", SIZEPOLICY=FIXED, AUTOSCALE;
+IMAGE c : city, IMAGE = "city.svg", SIZEPOLICY=FIXED, AUTOSCALE; 
 IMAGE vs : vs, IMAGE = "vs.png", SIZEPOLICY=FIXED, AUTOSCALE;
 
 IMAGE f1 = formonly.flag1, SIZEPOLICY=FIXED, AUTOSCALE;
@@ -33,9 +35,10 @@ IMAGE f2 = formonly.flag2, SIZEPOLICY=FIXED, AUTOSCALE;
 LABEL f01 = formonly.team1, TITLE="Country", JUSTIFY=RIGHT, STYLE="team";
 LABEL f02 = formonly.team2, TITLE="Country", JUSTIFY=LEFT, STYLE="team";
 
-LABEL f04 = formonly.venue, TITLE="Venue", STYLE="venue";
+LABEL f04 = formonly.venue, SIZEPOLICY=DYNAMIC, TITLE="Venue", STYLE="venue";
 LABEL f05 = formonly.kickoff, TITLE="Kickoff", JUSTIFY=CENTER, STYLE="kickoff";
 LABEL f06 = formonly.gametype, TITLE="Stage", STYLE="gametype";
+LABEL f07 = formonly.city, TITLE="City", STYLE="venue";
 
 IMAGE v1 = formonly.v1, ACTION = win1, SIZEPOLICY=FIXED, AUTOSCALE; 
 IMAGE dr = formonly.dr, ACTION = dr, SIZEPOLICY=FIXED, AUTOSCALE;
@@ -43,4 +46,4 @@ IMAGE v2 = formonly.v2, ACTION = win2, SIZEPOLICY=FIXED, AUTOSCALE;
 
 
 INSTRUCTIONS 
-SCREEN RECORD pick_scr(game, flag1, team1, pick, team2, flag2, venue, kickoff, gametype, v1, dr, v2);                    
+SCREEN RECORD pick_scr(game, flag1, team1, pick, team2, flag2, venue, city, kickoff, gametype, v1, dr, v2);                    
