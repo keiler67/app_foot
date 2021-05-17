@@ -16,8 +16,6 @@ DEFINE w ui.Window
     CONNECT TO "sweep"
     SET LOCK MODE TO WAIT 30
     CLOSE WINDOW SCREEN
-
-    DISPLAY FGL_GETENV ("FGLIMAGEPATH")
    
     OPEN WINDOW sweep WITH FORM "main"
     LET w = ui.Window.getCurrent()
@@ -25,7 +23,7 @@ DEFINE w ui.Window
     -- For testing purposes, if env variable set, use that for login
     IF NOT is_blank(FGL_GETENV("SWEEP_LOGIN")) >0 THEN
         LET login = FGL_GETENV("SWEEP_LOGIN")
-        CALL w.setText(SFMT("FIFA World Cup 2018 - Logged in as %1",get_name()))
+        CALL w.setText(SFMT("Euro 2020 - Logged in as %1",get_name()))
     END IF 
 
     -- Message and image of the day
@@ -39,7 +37,7 @@ DEFINE w ui.Window
 
         ON ACTION login
             CALL do_login()
-            CALL w.setText(SFMT("FIFA World Cup 2018 - Logged in as %1",get_name()))
+            CALL w.setText(SFMT("Euro 2020 - Logged in as %1",get_name()))
             CALL menu_state(DIALOG)
 
         ON ACTION pick
