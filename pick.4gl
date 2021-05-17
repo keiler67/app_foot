@@ -5,6 +5,7 @@ GLOBALS "global.4gl"
 FUNCTION do_pick()
 DEFINE now DATETIME YEAR TO MINUTE
 DEFINE localtime DATETIME YEAR TO MINUTE
+DEFINE kickoff_utc DATETIME YEAR TO MINUTE
 DEFINE sql STRING
 DEFINE i INTEGER
 TYPE pickType RECORD
@@ -199,8 +200,10 @@ END RECORD
         SELECT tm_flag INTO sg_arr[i].flag1 FROM team, game WHERE gm_id = i AND tm_id = gm_team1
         SELECT tm_flag INTO sg_arr[i].flag2 FROM team, game WHERE gm_id = i AND tm_id = gm_team2
         SELECT vn_stadium INTO sg_arr[i].venue FROM venue, game WHERE gm_id = i AND vn_id = gm_venue
-        SELECT gm_kickoff INTO sg_arr[i].kickoff FROM game WHERE gm_id = i
         SELECT gt_name INTO sg_arr[i].gametype FROM gametype, game WHERE gm_id = i AND gm_gametype = gt_id
+        SELECT gm_kickoff INTO kickoff_utc FROM game WHERE gm_id = i
+        LET localtime = get_local_time(kickoff_utc)
+        LET sg_arr[i].kickoff = localtime
         LET sg_arr[i].v1 = "1.png"
         LET sg_arr[i].v2 = "2.png"
         LET sg_arr[i].dr = "x.png"
