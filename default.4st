@@ -4,6 +4,9 @@
      <StyleAttribute name="actionPanelPosition" value="top" />
      <StyleAttribute name="ringMenuPosition" value="top" /> 
   </Style>
+  <Style name="ScrollGrid">
+     <StyleAttribute name="highlightCurrentRow" value="no" />
+  </Style>
 
   <Style name="Window.dialog">
      <StyleAttribute name="windowType" value="modal" />
@@ -25,6 +28,10 @@
    </Style>
    <Style name="Label.venue">
      <StyleAttribute name="textColor" value="grey" />
+     <StyleAttribute name="fontSize" value="small" />
+   </Style>
+   <Style name="Label.team">
+     <StyleAttribute name="fontSize" value="small" />
    </Style>
    <Style name="Label.gametype">
      <StyleAttribute name="fontWeight" value="bold" />

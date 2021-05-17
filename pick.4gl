@@ -212,7 +212,55 @@ END RECORD
     
     OPEN WINDOW pick WITH FORM "pick_new"
 
-    DISPLAY ARRAY sg_arr TO pick_scr.* 
+    DISPLAY ARRAY sg_arr TO pick_scr.* ATTRIBUTES (UNBUFFERED)
+        ON ACTION win1 
+            CASE sg_arr[arr_curr()].v1
+                #If v1 is already selected, reset to unselected 
+                WHEN "1_validate.png"
+                     LET sg_arr[arr_curr()].v1 = "1.png"
+                #If 1 is not selected, reset draw and v2, and select v1
+                WHEN "1.png" 
+                    IF sg_arr[arr_curr()].v2 = "2_validate.png" THEN 
+                        LET sg_arr[arr_curr()].v2 = "2.png"
+                    END IF
+                    IF sg_arr[arr_curr()].dr = "x_validate.png" THEN 
+                        LET sg_arr[arr_curr()].dr = "x.png"
+                    END IF
+                    LET sg_arr[arr_curr()].v1 = "1_validate.png"
+            END CASE 
+
+        ON ACTION win2 
+            CASE sg_arr[arr_curr()].v2
+                #If v1 is already selected, reset to unselected 
+                WHEN "2_validate.png"
+                     LET sg_arr[arr_curr()].v2 = "2.png"
+                #If 1 is not selected, reset draw and v2, and select v1
+                WHEN "2.png" 
+                    IF sg_arr[arr_curr()].v1 = "1_validate.png" THEN 
+                        LET sg_arr[arr_curr()].v1 = "1.png"
+                    END IF
+                    IF sg_arr[arr_curr()].dr = "x_validate.png" THEN 
+                        LET sg_arr[arr_curr()].dr = "x.png"
+                    END IF
+                    LET sg_arr[arr_curr()].v2 = "2_validate.png"
+            END CASE  
+
+        ON ACTION dr 
+            CASE sg_arr[arr_curr()].dr
+                #If v1 is already selected, reset to unselected 
+                WHEN "x_validate.png"
+                     LET sg_arr[arr_curr()].dr = "x.png"
+                #If 1 is not selected, reset draw and v2, and select v1
+                WHEN "x.png" 
+                    IF sg_arr[arr_curr()].v1 = "1_validate.png" THEN 
+                        LET sg_arr[arr_curr()].v1 = "1.png"
+                    END IF
+                    IF sg_arr[arr_curr()].v2 = "2_validate.png" THEN 
+                        LET sg_arr[arr_curr()].v2 = "2.png"
+                    END IF
+                    LET sg_arr[arr_curr()].dr = "x_validate.png"
+            END CASE
+ 
         ON ACTION EXIT
         EXIT DISPLAY
     END DISPLAY
