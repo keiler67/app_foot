@@ -18,7 +18,7 @@
 
   <ActionDefault name="admin"    text="Admin" image="fa-cog" comment="Administrator Tasks"  />
 
-  <ActionDefault name="player_pick" text="Player Picks" image="" comment="View other players picks" />
+  <ActionDefault name="player_pick" text="Player Picks" image="fa-list" comment="View other players picks" />
   <ActionDefault name="game_pick" text="Game Picks" image="fa-soccer-ball-o" comment="View picks for a game" />
 
   <ActionDefault name="update_game_score"    text="Update Game Score"     comment="Update the score in a game"   />
