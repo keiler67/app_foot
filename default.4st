@@ -6,12 +6,13 @@
   </Style>
   <Style name="ScrollGrid">
      <StyleAttribute name="highlightCurrentRow" value="no" />
+     <StyleAttribute name="itemsAlignment" value="left" />
+     
   </Style> 
   <Style name="ScrollGrid.paged">
     <StyleAttribute name="customWidget" value="pagedScrollGrid" />
+    <StyleAttribute name="itemsAlignment" value="left" />
   </Style> 
-
-
   <Style name="Window.dialog">
      <StyleAttribute name="windowType" value="modal" />
      <StyleAttribute name="sizable" value="no" />

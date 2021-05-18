@@ -126,6 +126,7 @@ DEFINE nlist om.NodeList
     DISPLAY "MEDIA IS ", ui.Interface.getRootNode().getAttribute("media")
 
      #pagedScrollgrid for media = medium and large and NULL (attribute not initialized on GBC/GMA/GMI initial display) + GMI / 
+     
      IF ui.Interface.getRootNode().getAttribute("media") == "large" OR
      ui.Interface.getRootNode().getAttribute("media") == "medium" OR
      ui.Interface.getFrontEndName() == "GBC"
@@ -136,7 +137,7 @@ DEFINE nlist om.NodeList
         LET f = w.getForm()
         CALL f.setElementStyle("sg1", "paged")
      END IF
-
+    
     DISPLAY ARRAY sg_arr TO pick_scr.* ATTRIBUTES (UNBUFFERED, DOUBLECLICK=pick_details, ACCEPT=FALSE, CANCEL=FALSE)
         ON ACTION win1 
             CASE sg_arr[arr_curr()].v1
