@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Project defaultApplication="-837405104" gstVersion="40002" version="3.4">
+<Project defaultApplication="-152861563" gstVersion="40002" version="3.4">
   <Settings>
     <DynamicProperties version="4">
       <DynamicProperty description="Accent color (Android 5.0 and later)" initialValue="#9575CD" isDefaultInherited="false" isHidden="false" label="Accent color" name="gma-accent-color" readOnly="false" type="COLOR"/>
@@ -68,7 +68,7 @@
   <LanguageList version="1.0"/>
   <PlatformList version="1.0"/>
   <Group environment="value:FGLPROFILE=fglprofile_office_sweep" id="65155232" label="office_sweep" language="Genero" targetDirectory="$(ProjectDir)">
-    <Application binaryName="office_sweep" environment="filelist:FGLIMAGEPATH=$(Fgldir)/lib/image2font.txt;$(ProjectDir)/flags;$(ProjectDir),value:SWEEP_NOWx=2021-06-12 20:45,value:SWEEP_LOGIN=admin" id="18736" label="office_sweep">
+    <Application binaryName="office_sweep" environment="filelist:FGLIMAGEPATH=$(Fgldir)/lib/image2font.txt;$(ProjectDir)/flags;$(ProjectDir),value:SWEEP_NOWx=2021-06-12 20:45,value:SWEEP_LOGINx=admin" id="18736" label="office_sweep">
       <Configuration id="-837405104" label="office_sweep"/>
       <VirtualFolder label="_readme">
         <File filePath="readme.txt"/>
