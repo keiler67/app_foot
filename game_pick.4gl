@@ -61,9 +61,9 @@ DEFINE cb ui.ComboBox
       LET game_pick_row.name = SFMT("%1 %2", firstname CLIPPED, surname CLIPPED)
       LET game_pick_arr[i].* = game_pick_row.*
       IF game_pick_arr[i].point > 0 THEN
-         LET game_pick_arr[i].point = "wcwin"
+         LET game_pick_arr[i].point = "accept"
       ELSE
-         LET game_pick_arr[i].point = "wcloose"
+         LET game_pick_arr[i].point = "cancel"
       END IF
    END FOREACH
 
