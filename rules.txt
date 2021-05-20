@@ -10,7 +10,6 @@
 <li> 2 points for the opening game, and the round of 16 games</li>
 <li> 3 points for the quarter finals</li> 
 <li> 4 points for the semi finals</li>
-<li> 5 points for the 3rd place match</li>
 <li> 10 points for the finale</li></ul>
 <br>
 <br>The result of knock-out games is determined after extra-time or penalties where applicable
