@@ -1,11 +1,11 @@
 LAYOUT (TEXT="Pick")
 VBOX
-SCROLLGRID sg1 (INITIALPAGESIZE=16, WANTFIXEDPAGESIZE=NO)
+SCROLLGRID sg1 (INITIALPAGESIZE=8, WANTFIXEDPAGESIZE=NO)
 {
 [""]
-[b|f06            ]
-[s|f04            ]
-[c|f07            ]
+[b|f06                 ]
+[s|f04                 ]
+[c|f07                 ]
          [f05          ]
 [f01    ][f1 ][vs ][f2 ][f02    ]
          [v1 ][dr ][v2 ]
@@ -35,7 +35,7 @@ IMAGE f2 = formonly.flag2, SIZEPOLICY=FIXED, AUTOSCALE;
 LABEL f01 = formonly.team1, TITLE="Country", JUSTIFY=RIGHT, STYLE="team";
 LABEL f02 = formonly.team2, TITLE="Country", JUSTIFY=LEFT, STYLE="team";
 
-LABEL f04 = formonly.venue, SIZEPOLICY=DYNAMIC, TITLE="Venue", STYLE="venue";
+LABEL f04 = formonly.venue, TITLE="Venue", STYLE="venue";
 LABEL f05 = formonly.kickoff, TITLE="Kickoff", JUSTIFY=CENTER, STYLE="kickoff";
 LABEL f06 = formonly.gametype, TITLE="Stage", STYLE="gametype";
 LABEL f07 = formonly.city, TITLE="City", STYLE="venue";
