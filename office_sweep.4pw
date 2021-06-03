@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Project defaultApplication="-152861563" gstVersion="40002" version="3.4">
+<Project defaultApplication="-837405104" gstVersion="40002" version="3.4">
   <Settings>
     <DynamicProperties version="4">
       <DynamicProperty description="Accent color (Android 5.0 and later)" initialValue="#9575CD" isDefaultInherited="false" isHidden="false" label="Accent color" name="gma-accent-color" readOnly="false" type="COLOR"/>
@@ -100,10 +100,6 @@
         <File filePath="default.4ad"/>
         <File filePath="default.4st"/>
         <File filePath="fglprofile_office_sweep"/>
-      </VirtualFolder>
-      <VirtualFolder label="webcomponents">
-        <File excludeFromLink="true" filePath="wc_2darray.4gl"/>
-        <File filePath="webcomponents/wc_2darray/wc_2darray.html"/>
       </VirtualFolder>
       <File filePath="admin.4gl"/>
       <File filePath="game_pick.4gl"/>

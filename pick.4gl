@@ -1,4 +1,4 @@
-IMPORT FGL wc_2darray
+--IMPORT FGL wc_2darray
 GLOBALS "global.4gl"
 
 
