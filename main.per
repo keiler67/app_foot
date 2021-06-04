@@ -1,4 +1,4 @@
-LAYOUT (TEXT="Euro 2020", IMAGE="logo.png")
+LAYOUT (TEXT="Euro 2020", IMAGE="logo.png", STYLE="window_main")
 
 VBOX
 HBOX (ORIENTATION@SMALL=VERTICAL, ORIENTATION@MEDIUM=HORIZONTAL, ORIENTATION@LARGE=HORIZONTAL)
@@ -20,7 +20,7 @@ END
 END  --HBOX 
 
 VBOX
-GROUP (TEXT="Image of the Day (Tap to Change)")
+GROUP (TEXT="Image of the Day (Tap to Change)", STYLE="iotd")
 GRID
 {
 [f03              ]
@@ -39,7 +39,7 @@ END --LAYOUT
 ATTRIBUTES
 
 IMAGE img01: logo, IMAGE = "logocup.png", SIZEPOLICY=FIXED, STRETCH=BOTH, AUTOSCALE;
-TEXTEDIT f02 = formonly.motd, STRETCH=BOTH, STYLE="html";
+TEXTEDIT f02 = formonly.motd, STRETCH=BOTH, STYLE="motd_html";
 IMAGE f03 = formonly.iotd, AUTOSCALE, STRETCH=BOTH, SIZEPOLICY=FIXED, ACTION=iotd;
 
  

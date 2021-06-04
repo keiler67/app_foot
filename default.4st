@@ -3,11 +3,18 @@
      <StyleAttribute name="windowType" value="normal" />
      <StyleAttribute name="actionPanelPosition" value="chrome" />
      <StyleAttribute name="ringMenuPosition" value="chrome" /> 
+     <StyleAttribute name="ringMenuPosition" value="chrome" />
+  </Style>
+  <Style name="Window.window_main">
+     <StyleAttribute name="windowType" value="normal" />
+     <StyleAttribute name="actionPanelPosition" value="chrome" />
+     <StyleAttribute name="ringMenuPosition" value="chrome" /> 
+     <StyleAttribute name="backgroundColor" value="#2CA6B8" />
+     
   </Style>
   <Style name="ScrollGrid">
      <StyleAttribute name="highlightCurrentRow" value="no" />
-     <StyleAttribute name="itemsAlignment" value="center" />
-     
+     <StyleAttribute name="itemsAlignment" value="center" />     
   </Style> 
   <Style name="ScrollGrid.paged">
     <StyleAttribute name="customWidget" value="pagedScrollGrid" />
@@ -22,6 +29,11 @@
      <StyleAttribute name="toolBarPosition" value="none" />
      <StyleAttribute name="statusBarType" value="none" />
   </Style>
+
+  <Style name="Group.iotd">
+     <StyleAttribute name="fontSize" value="20px" />
+     <StyleAttribute name="textColor" value="white" />
+   </Style>
 
    <Style name="Image">
      <StyleAttribute name="alignment" value="center" />
@@ -48,6 +60,12 @@
 
    <Style name="TextEdit.html">
      <StyleAttribute name="textFormat" value="html" />
+   </Style>
+   <Style name="TextEdit.motd_html">
+     <StyleAttribute name="textFormat" value="html" />
+     <StyleAttribute name="border" value="none" />
+     <StyleAttribute name="backgroundColor" value="#0A6C7B" />
+     <StyleAttribute name="textColor" value="white" />
    </Style>
 
    <Style name="Button.link">
