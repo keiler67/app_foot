@@ -25,12 +25,37 @@ DEFINE l_score2 INTEGER
       ON ACTION update_leaderboard
          CALL update_leaderboard()
 
+      ON ACTION update_knockout
+         CALL update_knockout()
+         
       ON ACTION cancel
          EXIT DIALOG
    END DIALOG
    CLOSE WINDOW admin
 
 END FUNCTION
+
+PRIVATE FUNCTION update_knockout()
+DEFINE request STRING
+
+   INPUT BY NAME request ATTRIBUTES (WITHOUT DEFAULTS=TRUE)
+   BEFORE INPUT
+     MESSAGE "Enter SQL request"
+   AFTER INPUT
+     BEGIN WORK
+       WHENEVER ERROR CONTINUE
+       EXECUTE IMMEDIATE request
+       WHENEVER ERROR STOP
+     COMMIT WORK
+     
+   END input
+END FUNCTION
+
+PRIVATE FUNCTION display_sql_error()
+   DEFINE errormsg STRING
+   LET errormsg="toto"
+   display "Test request errormsg contains errors"
+END function
 
 PRIVATE FUNCTION update_game_score(l_gm_id, l_score1, l_score2)
 DEFINE l_gm_id INTEGER
