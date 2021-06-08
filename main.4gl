@@ -19,11 +19,12 @@ DEFINE w ui.Window
    
     OPEN WINDOW sweep WITH FORM "main"
     LET w = ui.Window.getCurrent()
+    CALL w.setText("Euro 2020")
 
     -- For testing purposes, if env variable set, use that for login
     IF NOT is_blank(FGL_GETENV("SWEEP_LOGIN")) >0 THEN
         LET login = FGL_GETENV("SWEEP_LOGIN")
-        CALL w.setText(SFMT("Euro 2020  %1",get_name()))
+        MESSAGE(SFMT("Logged as %1", get_name()))
     END IF 
 
     -- Message and image of the day
@@ -37,7 +38,9 @@ DEFINE w ui.Window
 
         ON ACTION login
             CALL do_login()
-            CALL w.setText(SFMT("Euro 2020  %1",get_name()))
+            IF get_name() IS NOT NULL THEN
+                MESSAGE(SFMT("Logged as %1", get_name()))
+            END IF
             CALL menu_state(DIALOG)
 
         ON ACTION pick
@@ -66,7 +69,7 @@ DEFINE w ui.Window
 
         ON ACTION logoff
             INITIALIZE login TO NULL
-            CALL w.setText("Euro 2020")
+            MESSAGE("You have been logged out")
             CALL menu_state(DIALOG)
 
         ON ACTION close

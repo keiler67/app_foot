@@ -8,13 +8,13 @@
   <Style name="Window.window_main">
      <StyleAttribute name="windowType" value="normal" />
      <StyleAttribute name="actionPanelPosition" value="chrome" />
-     <StyleAttribute name="ringMenuPosition" value="chrome" /> 
-     <StyleAttribute name="backgroundColor" value="#2CA6B8" />
-     
+     <StyleAttribute name="ringMenuPosition" value="chrome" />
+    <!--  <StyleAttribute name="backgroundImage" value="background.png" /> -->
   </Style>
   <Style name="ScrollGrid">
      <StyleAttribute name="highlightCurrentRow" value="no" />
-     <StyleAttribute name="itemsAlignment" value="center" />     
+     <StyleAttribute name="itemsAlignment" value="center" />
+     <StyleAttribute name="textColor" value="white" />   
   </Style> 
   <Style name="ScrollGrid.paged">
     <StyleAttribute name="customWidget" value="pagedScrollGrid" />
@@ -33,6 +33,7 @@
   <Style name="Group.iotd">
      <StyleAttribute name="fontSize" value="20px" />
      <StyleAttribute name="textColor" value="white" />
+  <!--   <StyleAttribute name="backgroundImage" value="background.png" /> -->
    </Style>
 
    <Style name="Image">
@@ -41,14 +42,14 @@
    </Style>
     <Style name="Label.kickoff">
      <StyleAttribute name="fontSize" value="x-small" />
-     <StyleAttribute name="textColor" value="grey" />
+     <StyleAttribute name="textColor" value="white" />
    </Style>
    <Style name="Label.venue">
-     <StyleAttribute name="textColor" value="grey" />
-     <StyleAttribute name="fontSize" value="small" />
+     <StyleAttribute name="fontSize" value="x-small" />
    </Style>
    <Style name="Label.team">
      <StyleAttribute name="fontSize" value="small" />
+     <StyleAttribute name="textColor" value="white" />
    </Style>
    <Style name="Label.gametype">
      <StyleAttribute name="fontWeight" value="bold" />

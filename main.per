@@ -21,7 +21,7 @@ END  --HBOX
 
 VBOX
 GROUP (TEXT="Image of the Day (Tap to Change)", STYLE="iotd")
-GRID
+GRID 
 {
 [f03              ]
 [                 ]
@@ -38,7 +38,7 @@ END --LAYOUT
 
 ATTRIBUTES
 
-IMAGE img01: logo, IMAGE = "logocup.png", SIZEPOLICY=FIXED, STRETCH=BOTH, AUTOSCALE;
+IMAGE img01: logo, IMAGE = "logocup.png", SIZEPOLICY=DYNAMIC, STRETCH=BOTH, AUTOSCALE;
 TEXTEDIT f02 = formonly.motd, STRETCH=BOTH, STYLE="motd_html";
 IMAGE f03 = formonly.iotd, AUTOSCALE, STRETCH=BOTH, SIZEPOLICY=FIXED, ACTION=iotd;
 

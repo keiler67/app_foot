@@ -67,7 +67,7 @@
   </Settings>
   <LanguageList version="1.0"/>
   <PlatformList version="1.0"/>
-  <Group environment="value:FGLPROFILE=fglprofile_office_sweep" id="65155232" label="office_sweep" language="Genero" targetDirectory="$(ProjectDir)">
+  <Group environment="value:FGLPROFILE=fglprofile_office_sweep_ifx" id="65155232" label="office_sweep" language="Genero" targetDirectory="$(ProjectDir)">
     <Application binaryName="office_sweep" environment="filelist:FGLIMAGEPATH=$(Fgldir)/lib/image2font.txt;$(ProjectDir)/flags;$(ProjectDir),value:SWEEP_NOWx=2021-06-12 20:45,value:SWEEP_LOGINx=admin" id="18736" label="office_sweep">
       <Configuration id="-837405104" label="office_sweep"/>
       <VirtualFolder label="_readme">

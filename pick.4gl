@@ -52,13 +52,9 @@ DEFINE sg_arr DYNAMIC ARRAY OF RECORD
 END RECORD
 DEFINE w ui.Window
 DEFINE f ui.Form
-DEFINE n om.DomNode
-DEFINE nlist om.NodeList
+DEFINE g_os STRING
 
-     
-
-    
-        
+    LET g_os = get_os()
 
     LET now = get_now_utc()
     DISPLAY "NOW IS ", now
@@ -121,18 +117,12 @@ DEFINE nlist om.NodeList
     
     END FOR
     
-    OPEN WINDOW pick WITH FORM "pick_new"
-
-    DISPLAY "MEDIA IS ", ui.Interface.getRootNode().getAttribute("media")
-
-     #pagedScrollgrid for media = medium and large and NULL (attribute not initialized on GBC/GMA/GMI initial display) + GMI / 
+    OPEN WINDOW pick WITH FORM "pick_new"    
+     #pagedScrollgrid on GBC browser running on desktop OS (Windows, Linux, MacOS)
+     #(since we cannot use a paged scrollgrid depending on media size -> no STYLE@SMALL|MEDIUM|LARGE
      
-     IF ui.Interface.getRootNode().getAttribute("media") == "large" OR
-     ui.Interface.getRootNode().getAttribute("media") == "medium" OR
-     ui.Interface.getFrontEndName() == "GBC"
-     THEN  
-        DISPLAY "MEDIA CONDITION OK"
-        DISPLAY ui.Interface.getFrontEndName()
+     IF ui.Interface.getFrontEndName() == "GBC" AND 
+      (g_os == "WINDOWS" OR "LINUX" OR "macOS") THEN 
         LET w = ui.Window.getCurrent()
         LET f = w.getForm()
         CALL f.setElementStyle("sg1", "paged")
@@ -218,4 +208,10 @@ DEFINE l_game, l_pick INTEGER
     VALUES(login, l_game, l_pick, CURRENT YEAR TO SECOND)
 
     COMMIT WORK
+END FUNCTION
+
+FUNCTION get_os () 
+DEFINE os STRING
+CALL ui.Interface.frontCall("standard", "feInfo", ["osType"], [os])
+RETURN os
 END FUNCTION
