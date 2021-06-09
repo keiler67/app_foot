@@ -14,11 +14,22 @@
   <Style name="ScrollGrid">
      <StyleAttribute name="highlightCurrentRow" value="no" />
      <StyleAttribute name="itemsAlignment" value="center" />
-     <StyleAttribute name="textColor" value="white" />   
+     <StyleAttribute name="textColor" value="white" />  
+     <StyleAttribute name= "reduceFilter" value= "no" /> 
   </Style> 
   <Style name="ScrollGrid.paged">
     <StyleAttribute name="customWidget" value="pagedScrollGrid" />
     <StyleAttribute name="itemsAlignment" value="center" />
+  </Style> 
+  <Style name="Table.leaderboard">
+    <StyleAttribute name="tableType" value="frozenTable"/>
+    <StyleAttribute name="leftFrozenColumns" value="2"/>
+    <StyleAttribute name="reduceFilter" value="no"/>
+  </Style> 
+  <Style name="Table.game_pick">
+    <StyleAttribute name="tableType" value="frozenTable"/>
+    <StyleAttribute name="leftFrozenColumns" value="1"/>
+    <StyleAttribute name="reduceFilter" value="no"/>
   </Style> 
   <Style name="Window.dialog">
      <StyleAttribute name="windowType" value="modal" />
