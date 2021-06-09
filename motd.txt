@@ -1,14 +1,14 @@
 <h3 style="font-size:20px;">Euro 2020 Predictions Contest</h3><br>
 
-<br>Correctly predict the result (win/draw/loss) of each of the 51 matches in Euro 2020 (which is actually in 2021)
-<br>Predictions must be made before the scheduled kickoff of each individual match
+<br>Correctly predict the result (win/draw/loss) of each of the 51 matches in Euro 2020 (which is actually in 2021).
+<br>Predictions must be made before the scheduled kickoff of each individual match.
 <br>A correct prediction is worth ...
 
-<ul><li> 1 point for the group games (except the opening game)</li> 
-<li> 2 points for the opening game, and the round of 16 games</li>
-<li> 3 points for the quarter finals</li> 
-<li> 4 points for the semi finals</li>
-<li> 10 points for the finale</li></ul>
+<ul><li> 1 point for the group games (except the opening game).</li> 
+<li> 2 points for the opening game, and the round of 16 games.</li>
+<li> 3 points for the quarter finals.</li> 
+<li> 4 points for the semi finals.</li>
+<li> 10 points for the finale.</li></ul>
 <br>
-<br>The result of knock-out games is determined after extra-time or penalties where applicable
-<br>Winner is the person with the most points
+<br>The result of knock-out games is determined after extra-time or penalties where applicable.
+<br>Winner is the person with the most points.
