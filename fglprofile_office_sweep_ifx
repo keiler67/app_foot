@@ -1,2 +1,2 @@
-dbi.database.sweep.source = "sweep@ol_demo11"
+dbi.database.sweep.source = "sweep@ol_informix1410"
 dbi.database.sweep.driver = "dbmifx"

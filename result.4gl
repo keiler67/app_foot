@@ -50,7 +50,7 @@ DEFINE l_login CHAR(10)
             CALL do_game_pick(result_arr[DIALOG.getCurrentRow("result_scr")].game)
       END DISPLAY
         
-      ON ACTION cancel
+      ON ACTION back_dialog
          EXIT DIALOG
          
       ON ACTION close

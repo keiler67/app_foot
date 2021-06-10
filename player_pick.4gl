@@ -55,7 +55,7 @@ DEFINE player_pick_arr DYNAMIC ARRAY OF player_pick_rowType
    DIALOG
       DISPLAY ARRAY player_pick_arr TO player_pick_scr.*
       END DISPLAY
-      ON ACTION cancel
+      ON ACTION back_dialog
           EXIT DIALOG
    END DIALOG
    CLOSE WINDOW player_pick

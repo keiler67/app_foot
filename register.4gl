@@ -75,7 +75,7 @@ DEFINE count INTEGER
          END IF
          EXIT DIALOG
          
-      ON ACTION cancel
+      ON ACTION back_dialog
          IF new_mode THEN
             INITIALIZE login TO NULL
          END IF

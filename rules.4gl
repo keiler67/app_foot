@@ -8,9 +8,7 @@ DEFINE rules TEXT
    DISPLAY BY NAME rules
    
    MENU ""
-      ON ACTION cancel
-         EXIT MENU
-      ON ACTION close
+      ON ACTION back_dialog
          EXIT MENU
    END MENU
 

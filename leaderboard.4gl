@@ -28,7 +28,7 @@ FUNCTION do_leaderboard()
       ON ACTION player_pick
          CALL do_player_pick(leaderboard_arr[DIALOG.getCurrentRow("leaderboard_scr")].login)
 
-      ON ACTION cancel
+      ON ACTION back_dialog
          EXIT DIALOG
    END DIALOG
    CLOSE WINDOW leaderboard

@@ -78,7 +78,7 @@ DEFINE cb ui.ComboBox
          #   CALL do_player_pick(game_pick_arr[DIALOG.getCurrentRow("game_pick_scr")].login)
       END DISPLAY
 
-      ON ACTION cancel
+      ON ACTION back_dialog
          EXIT DIALOG
    END DIALOG
 

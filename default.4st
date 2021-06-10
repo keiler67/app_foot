@@ -4,6 +4,8 @@
      <StyleAttribute name="actionPanelPosition" value="chrome" />
      <StyleAttribute name="ringMenuPosition" value="chrome" /> 
      <StyleAttribute name="ringMenuPosition" value="chrome" />
+     <StyleAttribute name="backButtonAction" value="back_dialog" />
+    
   </Style>
   <Style name="Window.window_main">
      <StyleAttribute name="windowType" value="normal" />
@@ -31,6 +33,12 @@
     <StyleAttribute name="leftFrozenColumns" value="1"/>
     <StyleAttribute name="reduceFilter" value="no"/>
   </Style> 
+  <Style name="Table.player_pick">
+    <StyleAttribute name="reduceFilter" value="no"/>
+  </Style> 
+  <Style name="Table.result">
+    <StyleAttribute name="reduceFilter" value="no"/>
+  </Style>
   <Style name="Window.dialog">
      <StyleAttribute name="windowType" value="modal" />
      <StyleAttribute name="sizable" value="no" />

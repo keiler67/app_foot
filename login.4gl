@@ -14,10 +14,7 @@ DEFINE password CHAR(10)
                CALL ERRORLOG(SFMT("Invalid password attempt %1 - %2", login CLIPPED, password CLIPPED))
                NEXT FIELD CURRENT
             END IF
-         ON ACTION cancel
-            INITIALIZE login TO NULL
-            EXIT DIALOG
-         ON ACTION close
+         ON ACTION back_dialog
             INITIALIZE login TO NULL
             EXIT DIALOG
       END INPUT
