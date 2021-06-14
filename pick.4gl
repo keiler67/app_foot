@@ -109,6 +109,14 @@ DEFINE g_os STRING
             LET sg_arr[i].dr = "x_validate.png" ELSE
             LET sg_arr[i].dr = "x.png"
         END IF
+
+        # Handle games were teams are unknown (knockout phase)
+        IF pick_arr[i].team1 IS NULL THEN
+            LET sg_arr[i].v1 = NULL
+        END IF
+        IF pick_arr[i].team2 IS NULL THEN
+            LET sg_arr[i].v2 = NULL
+        END If 
         
          #Handle if draw allowed or not
         IF NOT pick_arr[i].gt_drawallowed THEN
