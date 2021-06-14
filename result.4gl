@@ -18,6 +18,7 @@ DEFINE sql STRING
 DEFINE i INTEGER
 DEFINE now DATETIME YEAR TO MINUTE
 DEFINE l_login CHAR(10)
+DEFINE localtime DATETIME YEAR TO MINUTE
 
    OPEN WINDOW result WITH FORM "result"
 
@@ -34,6 +35,8 @@ DEFINE l_login CHAR(10)
    FOREACH result_curs USING l_login, now INTO result_rec.*
       LET i = i + 1
       LET result_arr[i].* = result_rec.*
+      LET localtime = get_local_time(result_rec.kickoff)
+      LET result_arr[i].kickoff = localtime
       IF result_arr[i].result > 0 THEN
          LET result_arr[i].result = "accept"
       ELSE

@@ -23,6 +23,7 @@ DEFINE firstname, surname CHAR(30)
 DEFINE game_pick_row game_pick_rowType
 DEFINE game_pick_arr DYNAMIC ARRAY OF game_pick_rowType
 DEFINE cb ui.ComboBox
+DEFINE localtime DATETIME YEAR TO MINUTE
 
    OPEN WINDOW game_pick WITH FORM "game_pick"
    
@@ -45,7 +46,8 @@ DEFINE cb ui.ComboBox
    DISPLAY game.team2 CLIPPED TO team2
    DISPLAY game.score2 USING "<&" TO score2
    DISPLAY SFMT("%1 (%2)", game.stadium CLIPPED, game.city CLIPPED) TO venue
-   DISPLAY game.kickoff TO kickoff
+   LET localtime = get_local_time(game.kickoff)
+   DISPLAY localtime TO kickoff
 
    LET sql = "SELECT player.pl_login, '', pick.pk_pick, pick.pk_point, player.pl_firstname, player.pl_surname ",
              "FROM pick, player ",

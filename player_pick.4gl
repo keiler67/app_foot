@@ -19,6 +19,7 @@ DEFINE i INTEGER
 DEFINE stadium, city CHAR(30)
 DEFINE player_pick_row player_pick_rowType
 DEFINE player_pick_arr DYNAMIC ARRAY OF player_pick_rowType
+DEFINE localtime DATETIME YEAR TO MINUTE
 
    OPEN WINDOW player_pick WITH FORM "player_pick"
    LET player.login= player_login
@@ -48,7 +49,9 @@ DEFINE player_pick_arr DYNAMIC ARRAY OF player_pick_rowType
    CALL player_pick_arr.clear()
    FOREACH player_pick_curs USING player.login INTO player_pick_row.*, stadium, city
       LET i = i + 1
+      LET localtime = get_local_time(player_pick_row.kickoff)
       LET player_pick_arr[i].*= player_pick_row.*
+      LET player_pick_arr[i].kickoff = localtime
       LET player_pick_arr[i].venue= SFMT("%1 (%2)", stadium CLIPPED, city CLIPPED)
    END FOREACH
 
