@@ -15,7 +15,7 @@ FUNCTION do_leaderboard()
 
    -- replace with ON FILL if entries get large
    DIALOG
-      DISPLAY ARRAY leaderboard_arr TO leaderboard_scr.*
+      DISPLAY ARRAY leaderboard_arr TO leaderboard_scr.* ATTRIBUTES (DOUBLECLICK=player_pick)
       END DISPLAY
 
       BEFORE DIALOG
