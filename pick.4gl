@@ -135,7 +135,7 @@ DEFINE g_os STRING
         CALL f.setElementStyle("sg1", "paged")
      END IF
     
-    DISPLAY ARRAY sg_arr TO pick_scr.* ATTRIBUTES (UNBUFFERED, DOUBLECLICK=pick_details, ACCEPT=FALSE, CANCEL=FALSE)
+    DISPLAY ARRAY sg_arr TO pick_scr.* ATTRIBUTES (UNBUFFERED, ACCEPT=FALSE, CANCEL=FALSE)
         ON ACTION win1 
             CASE sg_arr[arr_curr()].v1
                 #If v1 is already selected, need to select another pick (if you want to update)
@@ -184,8 +184,8 @@ DEFINE g_os STRING
                     LET sg_arr[arr_curr()].dr = "x_validate.png"
                     CALL update_pick(sg_arr[arr_curr()].game, 0)
             END CASE
-        ON ACTION pick_details  
-                   CALL do_game_pick (sg_arr[arr_curr()].game)
+        --ON ACTION pick_details  
+          --         CALL do_game_pick (sg_arr[arr_curr()].game)
         ON ACTION back_dialog 
                     EXIT DISPLAY
 
