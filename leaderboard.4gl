@@ -14,25 +14,32 @@ FUNCTION do_leaderboard()
    CALL get_leaderboard()
 
    -- replace with ON FILL if entries get large
-   DIALOG
-      DISPLAY ARRAY leaderboard_arr TO leaderboard_scr.* ATTRIBUTES (DOUBLECLICK=player_pick)
-      END DISPLAY
+   DISPLAY ARRAY leaderboard_arr TO leaderboard_scr.* ATTRIBUTES (DOUBLECLICK=player_pick, ACCEPT=FALSE, CANCEL=FALSE)      
+      BEFORE DISPLAY
+         CALL setup_dialog(DIALOG)
 
-      BEFORE DIALOG
-        CALL DIALOG.setActionActive("result", leaderboard_arr.getLength()>0)
-        CALL DIALOG.setActionActive("player_pick", leaderboard_arr.getLength()>0)
-
-      ON ACTION result
-         CALL do_result(leaderboard_arr[DIALOG.getCurrentRow("leaderboard_scr")].login)
+      --ON ACTION result
+         --CALL do_result(leaderboard_arr[DIALOG.getCurrentRow("leaderboard_scr")].login)
 
       ON ACTION player_pick
          CALL do_player_pick(leaderboard_arr[DIALOG.getCurrentRow("leaderboard_scr")].login)
 
       ON ACTION back_dialog
-         EXIT DIALOG
-   END DIALOG
+         EXIT DISPLAY
+   END DISPLAY
+
    CLOSE WINDOW leaderboard
 END FUNCTION
+
+PRIVATE FUNCTION setup_dialog(d ui.Dialog)
+DEFINE has_rows BOOLEAN
+--DEFINE is_superuser BOOLEAN
+    LET has_rows = leaderboard_arr.getLength()>0 
+    --CALL d.setActionActive("result", has_rows)
+    CALL d.setActionActive("player_pick", has_rows)
+
+END FUNCTION 
+
 
 PRIVATE FUNCTION get_leaderboard()
 DEFINE sql STRING

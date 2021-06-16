@@ -6,9 +6,9 @@ Login     [f01       ]
 Name      [f02                          ]
 }
 END
-TABLE (HEIGHT=10 LINES, STYLE="player_pick")
+TABLE (HEIGHT=16 LINES, STYLE="player_pick")
 {
-[c01                ][c02        ][c03                 ][c04                 ][c05                ]
+[c01                      ][c02       ][c03                      ][c04][c05][c06][c07                      ]
 }
 END
 END
@@ -19,11 +19,13 @@ LABEL f01 = formonly.login;
 LABEL f02 = formonly.name;
 
 PHANTOM formonly.game;
-LABEL c01 = formonly.team1, TITLE="Team 1";
-COMBOBOX c02 = formonly.pick, INITIALIZER=combo_pick, TITLE="Pick";
-LABEL c03 = formonly.team2, TITLE="Team 2";
-LABEL c04 = formonly.venue, TITLE="Venue";
-LABEL c05 = formonly.kickoff, TITLE="Kickoff";
+COMBOBOX c01 = formonly.team1, INITIALIZER=combo_team, STYLE="combo_team", NOENTRY, TITLE="Country";
+COMBOBOX c02 = formonly.pick, INITIALIZER=combo_pick, STYLE="combo_pick", TITLE="Pick";
+COMBOBOX c03 = formonly.team2, INITIALIZER=combo_team, STYLE="combo_team", NOENTRY, TITLE="Country";
+EDIT c04 = formonly.score1, TITLE="Score";
+EDIT c05 = formonly.score2, TITLE="Score";
+IMAGE c06 = formonly.result;
+LABEL c07 = formonly.kickoff, TITLE="Kickoff";
 
 INSTRUCTIONS
-SCREEN RECORD player_pick_scr(game, team1, pick, team2, venue, kickoff)
+SCREEN RECORD player_pick_scr(game, team1, pick, team2, score1, score2, result, kickoff)
