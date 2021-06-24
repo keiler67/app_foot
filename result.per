@@ -1,8 +1,8 @@
-LAYOUT (TEXT="Results")
+LAYOUT (TEXT="Results/Picks")
 VBOX
-TABLE (HEIGHT=16 LINES, WANTFIXEDPAGESIZE, STYLE="result")
+TABLE (HEIGHT=16 LINES, STYLE="result", STRETCHCOLUMNS)
 {
-[f01                      ][f02       ][f03                      ][f04][f05][f06][f07                      ]
+[f01          ][f02       ][f03           ][f04][f05][f06][f07           ]
 
 }
 END
@@ -10,13 +10,13 @@ END
 ATTRIBUTES
 PHANTOM formonly.game;
 
-COMBOBOX f01 = formonly.team1, INITIALIZER=combo_team, STYLE="combo_team", NOENTRY, TITLE="Country";
-COMBOBOX f02 = formonly.pick, INITIALIZER=combo_pick, STYLE="combo_pick", TITLE="Pick";
-COMBOBOX f03 = formonly.team2, INITIALIZER=combo_team, STYLE="combo_team", NOENTRY, TITLE="Country";
-EDIT f04 = formonly.score1, TITLE="Score";
-EDIT f05 = formonly.score2, TITLE="Score";
-IMAGE f06 = formonly.result;
-LABEL f07 = formonly.kickoff, TITLE="Match date";
+COMBOBOX f01 = formonly.team1, INITIALIZER=combo_team, STYLE="combo_team", NOENTRY, TITLE="Country";--, STRETCHMIN=1;
+COMBOBOX f02 = formonly.pick, INITIALIZER=combo_pick, STYLE="combo_pick", TITLE="Pick";--, STRETCHMIN=1;
+COMBOBOX f03 = formonly.team2, INITIALIZER=combo_team, STYLE="combo_team", NOENTRY, TITLE="Country";--, STRETCHMIN=1;
+EDIT f04 = formonly.score1, TITLE="Score";--, STRETCHMIN=1;
+EDIT f05 = formonly.score2, TITLE="Score";--, STRETCHMIN=1;
+IMAGE f06 = formonly.result;--, STRETCHMIN=1;
+LABEL f07 = formonly.kickoff;--, TITLE="Match date", STRETCHMIN=1;
 
 INSTRUCTIONS
 SCREEN RECORD result_scr(game, team1, pick, team2, score1, score2, result, kickoff);
