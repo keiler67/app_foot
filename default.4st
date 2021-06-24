@@ -13,6 +13,7 @@
      <StyleAttribute name="ringMenuPosition" value="chrome" />
     <!--  <StyleAttribute name="backgroundImage" value="background.png" /> -->
   </Style>
+  
   <Style name="ScrollGrid">
      <StyleAttribute name="highlightCurrentRow" value="no" />
      <StyleAttribute name="itemsAlignment" value="center" />
@@ -23,22 +24,36 @@
     <StyleAttribute name="customWidget" value="pagedScrollGrid" />
     <StyleAttribute name="itemsAlignment" value="center" />
   </Style> 
+  
   <Style name="Table.leaderboard">
-    <StyleAttribute name="tableType" value="frozenTable"/>
-    <StyleAttribute name="leftFrozenColumns" value="2"/>
     <StyleAttribute name="reduceFilter" value="no"/>
   </Style> 
+  <Style name="Grid.leaderboard_details">
+    <StyleAttribute name="fontSize" value="x-small"/>
+    <StyleAttribute name="textColor" value="white"/>
+  </Style>
+  
   <Style name="Table.game_pick">
-    <StyleAttribute name="tableType" value="frozenTable"/>
-    <StyleAttribute name="leftFrozenColumns" value="1"/>
     <StyleAttribute name="reduceFilter" value="no"/>
+  </Style>
+ <Style name="Grid.game_pick_details">
+    <StyleAttribute name="textColor" value="white"/>
   </Style> 
+  
   <Style name="Table.player_pick">
     <StyleAttribute name="reduceFilter" value="no"/>
   </Style> 
+  <Style name="Grid.player_pick_details">
+    <StyleAttribute name="textColor" value="white"/>
+  </Style> 
+  
   <Style name="Table.result">
     <StyleAttribute name="reduceFilter" value="no"/>
+    <StyleAttribute name="showGrid" value="no"/> 
+    <StyleAttribute name="rowHover" value="yes"/> 
+    <StyleAttribute name="alternateRows" value="yes"/> 
   </Style>
+  
   <Style name="Window.dialog">
      <StyleAttribute name="windowType" value="modal" />
      <StyleAttribute name="sizable" value="no" />
