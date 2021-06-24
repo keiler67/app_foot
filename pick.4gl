@@ -129,7 +129,7 @@ DEFINE g_os STRING
      #pagedScrollgrid on GBC browser running on desktop OS (Windows, Linux, MacOS)
      #(since we cannot use a paged scrollgrid depending on media size -> no STYLE@SMALL|MEDIUM|LARGE
      
-     IF ui.Interface.getFrontEndName() == "GBC" AND (g_os == "WINDOWS" OR g_os == "LINUX" OR g_os == "macOS") THEN 
+     IF ui.Interface.getFrontEndName() == "GBC" AND (g_os == "WINDOWS" OR g_os == "LINUX" OR g_os == "macOS" OR g_os == "OSX") THEN 
         LET w = ui.Window.getCurrent()
         LET f = w.getForm()
         CALL f.setElementStyle("sg1", "paged")
