@@ -1,7 +1,7 @@
 GLOBALS "global.4gl"
 
 FUNCTION do_login()
-DEFINE password CHAR(10)
+DEFINE password STRING
    INITIALIZE password TO NULL
    OPEN WINDOW login WITH FORM "login"
    DIALOG ATTRIBUTES(UNBUFFERED)

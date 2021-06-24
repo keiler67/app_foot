@@ -2,7 +2,7 @@ GLOBALS "global.4gl"
 
 FUNCTION do_register(new_mode)
 DEFINE new_mode BOOLEAN
-DEFINE password, password2 CHAR(10)
+DEFINE password, password2 STRING
 DEFINE firstname CHAR(40)
 DEFINE surname CHAR(40)
 DEFINE email CHAR(40)
